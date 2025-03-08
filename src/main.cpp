@@ -34,15 +34,7 @@ int main() {
         return -1;
     }
     ConvexHullShader shader("../includes/shaders/convex_hull_vertex_shader.glsl", "../includes/shaders/convex_hull_fragment_shader.glsl");
-
     auto points = utils::getRandomPoints(10, -0.95f, 0.95f, -0.95f, 0.95f, 1.0f, 1.0f, false);
-    /*auto points = std::vector<Point3D<float>> {
-        Point3D<float>(0.0f, 0.0f, 1.0f),
-        Point3D<float>(0.1f, 0.3f, 1.0f),
-        Point3D<float>(0.2f, 0.2f, 1.0f),
-        Point3D<float>(0.3f, 0.3f, 1.0f),
-        Point3D<float>(0.4f, 0.0f, 1.0f)
-    };*/
     auto flattenedPoints = utils::flatten(points);
     auto convexHullSolver = algorithms::convex_hull::ConvexHullSolver<float>(std::make_unique<algorithms::convex_hull::ConvexHullGiftWrapping<float>>());
     auto hull = convexHullSolver.compute(points);

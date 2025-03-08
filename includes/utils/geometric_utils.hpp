@@ -1,6 +1,7 @@
 #ifndef GEOMETRIC_UTILS_HPP
 #define GEOMETRIC_UTILS_HPP
 
+#include <cstdint>
 #include <vector>
 #include <limits>
 #include <type_traits>
@@ -60,8 +61,8 @@ namespace utils {
      * @return The index of the extreme right point.
      */
     template<typename T>
-    u_int32_t getIndexExtremeRightPoint(const std::vector<core::Point3D<T>>& points) {
-        u_int32_t indexExtremeRight = 0;
+    uint32_t getIndexExtremeRightPoint(const std::vector<core::Point3D<T>>& points) {
+        uint32_t indexExtremeRight = 0;
         for (size_t i = 1; i < points.size(); i++) {
             if (points[i].getX() > points[indexExtremeRight].getX()) {
                 indexExtremeRight = i;
@@ -76,8 +77,8 @@ namespace utils {
      * @return The index of the extreme left point.
      */
     template<typename T>
-    u_int32_t getIndexExtremeLeftPoint(const std::vector<core::Point3D<T>>& points) {
-        u_int32_t indexExtremeLeft = 0;
+    uint32_t getIndexExtremeLeftPoint(const std::vector<core::Point3D<T>>& points) {
+        uint32_t indexExtremeLeft = 0;
         for (size_t i = 1; i < points.size(); i++) {
             if (points[i].getX() < points[indexExtremeLeft].getX()) {
                 indexExtremeLeft = i;
